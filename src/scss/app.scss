@@ -1,0 +1,68 @@
+@import './components/card.scss';
+@import './reset';
+
+body {
+  background-color: rgb(137, 131, 255);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.wrapper {
+  width: calc(92vw - 100px);
+  height: 100%;
+  background-color: #fff;
+  margin: 50px auto;
+  border-radius: 10px;
+  max-width: 1400px;
+
+  @media (max-width: 839px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 500px) {
+    width: calc(90vw - 10px);
+    font-size: 15px;
+  }
+}
+.content {
+  flex-direction: column;
+  gap: 120px;
+  display: flex;
+  @media (max-width: 839px) {
+    gap: 80px;
+  }
+
+  @media (max-width: 500px) {
+    gap: 40px;
+  }
+}
+
+.content__error {
+  padding-bottom: 20px;
+  height: 80%;
+  &h2 {
+    font-size: 25px;
+  }
+  &p {
+    font-size: 20px;
+  }
+
+  img {
+    height: 40%;
+    width: 70%;
+
+    @media (max-width: 950px) {
+    }
+    @media (max-width: 500px) {
+      height: 60%;
+      width: 100%;
+    }
+  }
+}
+
+div[data-column-id='1'] {
+  text-align: center;
+  max-width: 40px;
+  margin-right: -40px;
+}
