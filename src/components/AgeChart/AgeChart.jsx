@@ -6,13 +6,13 @@ import { dataHelper } from './dataHelper';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function AgeChart(list) {
-  const arrayBirthdayCount = dataHelper(list.list);
+  const birthdayCountArray = dataHelper(list.list);
   const data = {
     labels: ['25-30 лет', '30-35 лет', '35-40 лет', '40-45 лет', '45-50 лет'],
     datasets: [
       {
         label: 'Кол-во заявителей в данном возрасте',
-        data: arrayBirthdayCount,
+        data: birthdayCountArray,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
           'rgba(54, 162, 235, 0.2)',
