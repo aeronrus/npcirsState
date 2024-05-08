@@ -93,6 +93,17 @@ describe('С помощью массива тестов testCases', () => {
       ],
       expected: [0, 0, 0, 0, 0],
     },
+    {
+      argumemt: [
+        {
+          a: 1,
+          b: 'Рогалев',
+          c: 'Руслан',
+          patronymic: 'Евгеньевич',
+        },
+      ],
+      expected: [],
+    },
   ];
   testCases.forEach((test) => {
     it(`Входяща строка: ${JSON.stringify(test.argumemt, null, 2)} ожидаю: ${JSON.stringify(
