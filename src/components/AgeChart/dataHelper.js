@@ -5,13 +5,13 @@ function dataHelper(data) {
   if (!data || !Array.isArray(data) || data.length === 0 || !data[0].birthDate) {
     return [];
   }
-  const aplicationDates = data.map((item) => {
+  const birthDates = data.map((item) => {
     return item.birthDate.replace(/\./g, '-');
   });
 
   const today = new Date();
-  if (aplicationDates)
-    aplicationDates.forEach((item) => {
+  if (birthDates)
+    birthDates.forEach((item) => {
       let str = item.split('-');
       let date = str[2] + '-' + str[1] + '-' + str[0];
       let birth = new Date(date);
