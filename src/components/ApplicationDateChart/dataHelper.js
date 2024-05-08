@@ -1,5 +1,21 @@
-export function dataHelper(data) {
+function dataHelper(data) {
   const monthsCount = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0 };
+  if (!data || !Array.isArray(data) || data.length === 0 || !data[0].applicationDate) {
+    return {
+      January: 0,
+      February: 0,
+      March: 0,
+      April: 0,
+      May: 0,
+      June: 0,
+      July: 0,
+      August: 0,
+      September: 0,
+      October: 0,
+      November: 0,
+      December: 0,
+    };
+  }
   const aplicationDates = data
     ? data.map((item) => {
         return item.applicationDate.replace(/\./g, '-');
@@ -28,3 +44,4 @@ export function dataHelper(data) {
 
   return monthsKeys;
 }
+module.exports = { dataHelper };
