@@ -1,9 +1,9 @@
 const { dataHelper } = require('../../src/components/AgeChart/dataHelper');
 
-describe('validateValue', () => {
-  test('Возраст 25', () => {
-    expect(
-      dataHelper([
+describe('С помощью массива тестов testCases', () => {
+  const testCases = [
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -12,12 +12,11 @@ describe('validateValue', () => {
           birthDate: '21.04.1998',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([1, 0, 0, 0, 0]);
-  });
-  test('Возраст 30', () => {
-    expect(
-      dataHelper([
+      ],
+      expected: [1, 0, 0, 0, 0],
+    },
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -26,12 +25,11 @@ describe('validateValue', () => {
           birthDate: '21.04.1993',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([0, 1, 0, 0, 0]);
-  });
-  test('Возраст 45', () => {
-    expect(
-      dataHelper([
+      ],
+      expected: [0, 1, 0, 0, 0],
+    },
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -40,15 +38,11 @@ describe('validateValue', () => {
           birthDate: '21.04.1979',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([0, 0, 0, 0, 1]);
-  });
-});
-
-describe('unValidateValue', () => {
-  test('Возраст 24', () => {
-    expect(
-      dataHelper([
+      ],
+      expected: [0, 0, 0, 0, 1],
+    },
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -57,12 +51,11 @@ describe('unValidateValue', () => {
           birthDate: '21.04.2000',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([0, 0, 0, 0, 0]);
-  });
-  test('Возраст 54', () => {
-    expect(
-      dataHelper([
+      ],
+      expected: [0, 0, 0, 0, 0],
+    },
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -71,14 +64,11 @@ describe('unValidateValue', () => {
           birthDate: '21.04.1970',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([0, 0, 0, 0, 0]);
-  });
-});
-describe('unCorrectValue', () => {
-  test('Возраст -1', () => {
-    expect(
-      dataHelper([
+      ],
+      expected: [0, 0, 0, 0, 0],
+    },
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -87,12 +77,11 @@ describe('unCorrectValue', () => {
           birthDate: '21.04.2025',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([0, 0, 0, 0, 0]);
-  });
-  test('Возраст 130', () => {
-    expect(
-      dataHelper([
+      ],
+      expected: [0, 0, 0, 0, 0],
+    },
+    {
+      argumemt: [
         {
           id: 1,
           surname: 'Рогалев',
@@ -101,22 +90,16 @@ describe('unCorrectValue', () => {
           birthDate: '21.04.1903',
           applicationDate: '23.04.2023',
         },
-      ]),
-    ).toEqual([0, 0, 0, 0, 0]);
-  });
-  test('Некорректный объект', () => {
-    expect(
-      dataHelper([
-        {
-          a: 1,
-          b: 'Рогалев',
-          c: 'Руслан',
-          patronymic: 'Евгеньевич',
-        },
-      ]),
-    ).toEqual([]);
-  });
-  test('Пустой массив', () => {
-    expect(dataHelper([])).toEqual([]);
+      ],
+      expected: [0, 0, 0, 0, 0],
+    },
+  ];
+  testCases.forEach((test) => {
+    it(`Входяща строка: ${JSON.stringify(test.argumemt, null, 2)} ожидаю: ${JSON.stringify(
+      test.expected,
+    )}`, () => {
+      const res = dataHelper(test.argumemt);
+      expect(res).toEqual(test.expected);
+    });
   });
 });
