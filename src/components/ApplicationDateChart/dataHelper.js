@@ -1,4 +1,4 @@
-function dataHelper(data) {
+export function dataHelper(data) {
   const monthsCount = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 0, 12: 0 };
   if (!data || !Array.isArray(data) || data.length === 0 || !data[0].applicationDate) {
     return {
@@ -44,4 +44,3 @@ function dataHelper(data) {
 
   return monthsKeys;
 }
-module.exports = { dataHelper };

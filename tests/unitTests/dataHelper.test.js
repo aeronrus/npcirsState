@@ -1,4 +1,4 @@
-const { dataHelper } = require('../../src/components/AgeChart/dataHelper');
+import { dataHelper } from '../../src/components/AgeChart/dataHelper';
 
 describe('С помощью массива тестов testCases', () => {
   const testCases = [

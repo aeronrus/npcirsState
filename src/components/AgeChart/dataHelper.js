@@ -1,4 +1,4 @@
-function dataHelper(data) {
+export function dataHelper(data) {
   const ageCount = { '25-30': 0, '30-35': 0, '35-40': 0, '40-45': 0, '45-50': 0 };
   const ageArray = [];
 
@@ -41,5 +41,3 @@ function dataHelper(data) {
   const array = Object.values(ageCount);
   return array;
 }
-
-module.exports = { dataHelper };

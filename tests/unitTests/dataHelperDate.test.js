@@ -1,4 +1,4 @@
-const { dataHelper } = require('../../src/components/ApplicationDateChart/dataHelper');
+import { dataHelper } from '../../src/components/ApplicationDateChart/dataHelper';
 
 describe('validateValue', () => {
   test('Все заявки в январе', () => {
